@@ -1,0 +1,58 @@
+#
+# SECO system driver
+#
+
+menu "SECO_MXC_SYSTEM"
+
+config ECONTROLLER
+        bool "Comunication system with the Embedded Controller"
+        depends on I2C && Q7_ECONTROLLER
+        help
+          Say Y here if you want to use the Seco Comnunication System with the Embedded Controller.
+
+	      If unsure, say Y.
+
+
+config PWM_IMX6
+        bool "Use the PWM3 of the iMX6 as general PWM"
+        depends on I2C && (Q7_PWM3 || Q7_PWM2)
+        help
+		say N here if you want to use it as GPIO.
+
+
+config SECO_GPIO_EXPANDER
+	bool "Seco CPLD GPIO x8 I/O expander"
+	depends on Q7_GPIO_EXPANDER
+	help 
+          Say Y here if you want to use the Seco CPLD GPIO x8 I/O expander.
+
+              If unsure, say N.
+
+
+config SECO_W83627DHG_LPC
+	bool "Winbond w83627dhg with LPC interface"
+	depends on Q7_W83627DHG_LPC
+	help
+	  Say Y here if you wanto to use the Seco Winbond w83627dhg with LPC interface.
+
+              If unsure, say N.
+
+
+config SECO_XR28V382_LPC
+	bool "EXAR XR28V382 with LPC interface"
+	depends on Q7_XR28V382_LPC
+	help
+	  Say Y here if you wanto to use the Seco Exar xr28v382 with LPC interface.
+
+              If unsure, say N.
+
+	      
+config RTC_DRV_BRIDGE
+
+	bool "Synchronization system beetwen "
+        depends on Q7_RTC_BRIDGE
+	help
+          RTC bridge driver.
+
+
+endmenu
